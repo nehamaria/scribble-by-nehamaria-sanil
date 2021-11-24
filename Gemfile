@@ -34,6 +34,8 @@ group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "rubocop"
   gem "rubocop-rails"
+  gem "sqlite3", "~> 1.4"
+
 end
 
 group :development do
@@ -52,4 +54,5 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "pg", group: [:production]
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]

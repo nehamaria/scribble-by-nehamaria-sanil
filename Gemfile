@@ -52,6 +52,8 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
 end
 
+# For password encryption
+gem "bcrypt", "~> 3.1.13"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "pg", group: [:production]
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]

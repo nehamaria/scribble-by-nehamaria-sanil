@@ -17,20 +17,11 @@ ActiveRecord::Schema.define(version: 2021_11_24_145703) do
   create_table "articles", force: :cascade do |t|
     t.string "title", null: false
     t.string "body", null: false
+    t.integer "status", null: false
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_articles_on_category_id"
-  end
-
-  create_table "authors", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
-    t.string "password_digest", null: false
-    t.string "authentication_token"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_authors_on_email"
   end
 
   create_table "categories", force: :cascade do |t|

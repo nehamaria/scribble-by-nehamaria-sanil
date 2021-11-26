@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  article:
+   not_found: "Article Not Found"
+  successfully_deleted: "%{entity} successfully deleted!"
+  successfully_created: "%{entity} successfully created"
+  successfully_updated: "%{entity} successfully updated"

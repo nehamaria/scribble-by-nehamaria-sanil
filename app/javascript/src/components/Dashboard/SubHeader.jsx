@@ -6,11 +6,15 @@ import { Link } from "react-router-dom";
 
 import { COLUMNS } from "./constant";
 
-const SubHeader = ({ handleChange, selectedColumns }) => {
+const SubHeader = ({ handleChange, selectedColumns, handleSearchTitle }) => {
   return (
     <div className="flex justify-end  w-full space-x-4 mr-2 mt-5 mb-10">
       <div className="w-1/2">
-        <Input placeholder="Search" prefix={<Search />} />
+        <Input
+          placeholder="Search article title"
+          prefix={<Search />}
+          onChange={handleSearchTitle}
+        />
       </div>
       <Dropdown
         buttonStyle="secondary"
@@ -22,7 +26,7 @@ const SubHeader = ({ handleChange, selectedColumns }) => {
           {COLUMNS.map((column, index) => (
             <Checkbox
               checked={selectedColumns.includes(column.Header)}
-              id="checkbox_name"
+              id={`checkbox_${index}`}
               label={
                 column.Header.charAt(0) + column.Header.slice(1).toLowerCase()
               }

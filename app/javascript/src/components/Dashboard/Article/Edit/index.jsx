@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import { PageLoader } from "@bigbinary/neetoui/v2";
+import { PageLoader } from "neetoui";
 import { useParams, useHistory } from "react-router";
 
-import articleApi from "../../../../apis/article";
-import categoryApi from "../../../../apis/category";
-import ArticleForm from "../Form";
+import articleApi from "apis/article";
+import categoryApi from "apis/category";
+
+import ArticleForm from "../Form/ArticleForm";
 
 const Edit = () => {
   const [articleDetails, setArticleDetails] = useState({});
@@ -16,22 +17,26 @@ const Edit = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
 
+  const setFormValues = articles => {
+    const selectedForm = (({ title, body, category }) => ({
+      title,
+      body,
+      category,
+    }))(articles);
+    selectedForm.category = {
+      value: selectedForm.category.id,
+      label: selectedForm.category.name,
+    };
+    return selectedForm;
+  };
+
   const fetchDetails = async () => {
     try {
       const article = await articleApi.show(id);
       setArticleDetails(article.data.articles);
       const response = await categoryApi.categoryList();
       setCategoryList(response.data.categories);
-      const selectedForm = (({ title, body, category }) => ({
-        title,
-        body,
-        category,
-      }))(article.data.articles);
-      selectedForm.category = {
-        value: selectedForm.category.id,
-        label: selectedForm.category.name,
-      };
-      setInitialForm(selectedForm);
+      setInitialForm(setFormValues(article.data.articles));
       setStatus(
         article.data.articles.status.includes("Draft")
           ? "Save Draft"

@@ -3,15 +3,17 @@ import React, { useState, useEffect } from "react";
 import { PageLoader } from "neetoui";
 import { useHistory } from "react-router";
 
-import articleApi from "../../../../apis/article";
-import categoryApi from "../../../../apis/category";
-import ArticleForm from "../Form";
+import articleApi from "apis/article";
+import categoryApi from "apis/category";
+
+import ArticleForm from "../Form/ArticleForm";
 
 const AddArticle = () => {
   const [categoryList, setCategoryList] = useState([]);
   const [status, setStatus] = useState("Save Draft");
   const history = useHistory();
   const [loading, setLoading] = useState(true);
+
   const handleSubmit = async values => {
     const { title, category, body } = values;
     const payload = {
@@ -27,6 +29,7 @@ const AddArticle = () => {
       logger.error(error);
     }
   };
+
   const fetchCategoryList = async () => {
     try {
       const response = await categoryApi.categoryList();
@@ -37,7 +40,9 @@ const AddArticle = () => {
       setLoading(false);
     }
   };
+
   useEffect(() => fetchCategoryList(), []);
+
   if (loading) {
     return (
       <div>

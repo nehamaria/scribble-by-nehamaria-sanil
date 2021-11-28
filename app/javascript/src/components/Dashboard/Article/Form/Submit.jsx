@@ -5,12 +5,12 @@ import { Button, Dropdown } from "neetoui";
 
 const Submit = ({ isSubmitting, setStatus, status }) => {
   return (
-    <div className="flex neeto-ui-bg-secondary-indigo rounded-full">
+    <div className="flex rounded-md overflow-hidden neeto-ui-bg-secondary-indigo">
       <Button
         type="submit"
         label={status}
         size="large"
-        className="neeto-ui-bg-secondary-indigo rounded-l-none"
+        className=" rounded-l-none "
         disabled={isSubmitting}
         loading={isSubmitting}
       />
@@ -18,7 +18,7 @@ const Submit = ({ isSubmitting, setStatus, status }) => {
         icon={() => <Down className="border-l border-white  " />}
         position="bottom-end"
         buttonProps={{
-          className: "neeto-ui-bg-secondary-indigo rounded-r-none",
+          className: " rounded-r-none ",
         }}
       >
         <li onClick={() => setStatus("Save Draft")}>Save Draft</li>

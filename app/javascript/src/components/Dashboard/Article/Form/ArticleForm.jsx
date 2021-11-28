@@ -4,8 +4,8 @@ import { Formik, Form } from "formik";
 import { Button } from "neetoui";
 import { Input, Textarea, Select } from "neetoui/formik";
 import { Link } from "react-router-dom";
-import * as yup from "yup";
 
+import { INITIAL_FORM_VALUES, VALIDATION_SCHEMA } from "./constants";
 import Submit from "./Submit";
 
 const ArticleForm = ({
@@ -13,24 +13,13 @@ const ArticleForm = ({
   categoryList,
   status,
   setStatus,
-  initialForm = { title: "", category: null, body: "" },
+  initialForm = INITIAL_FORM_VALUES,
 }) => {
   return (
     <Formik
       initialValues={initialForm}
       onSubmit={handleSubmit}
-      validationSchema={yup.object({
-        title: yup.string().required("Title is required"),
-        category: yup
-          .object()
-          .shape({
-            value: yup.string(),
-            label: yup.string(),
-          })
-          .nullable()
-          .required("Correct answer is required."),
-        body: yup.string().required("Description is required"),
-      })}
+      validationSchema={VALIDATION_SCHEMA}
     >
       {({ isSubmitting }) => (
         <Form className="flex mt-8 gap-y-6 m-4 w-full">
@@ -41,6 +30,7 @@ const ArticleForm = ({
                 name="title"
                 type="text"
                 placeholder="Enter article title"
+                size="large"
               />
               <Select
                 label="Category"
@@ -52,6 +42,7 @@ const ArticleForm = ({
               />
             </div>
             <Textarea
+              rows={15}
               label="Article Body"
               name="body"
               type="text"

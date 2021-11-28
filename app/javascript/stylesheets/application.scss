@@ -2,3 +2,17 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import "react-toastify/dist/ReactToastify.min.css";
+
+$indigo-primary: #5e5ce6;
+$indigo-dark: #3230df;
+
+.neeto-ui-btn--style {
+  &-primary {
+    background-color: $indigo-primary !important;
+
+    &:hover:not(:disabled),
+    &:active {
+      background-color: $indigo-dark !important;
+    }
+  }
+}

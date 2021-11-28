@@ -3,8 +3,8 @@
 @import "tailwindcss/utilities";
 @import "react-toastify/dist/ReactToastify.min.css";
 
-$indigo-primary: #5e5ce6;
-$indigo-dark: #3230df;
+$indigo-primary: #6366f1;
+$indigo-dark: #5653d8;
 
 .neeto-ui-btn--style {
   &-primary {
@@ -15,4 +15,10 @@ $indigo-dark: #3230df;
       background-color: $indigo-dark !important;
     }
   }
+}
+
+.neeto-ui-checkbox__wrapper
+  .neeto-ui-checkbox__container
+  .neeto-ui-checkbox[type="checkbox"] {
+  color: $indigo-primary !important;
 }

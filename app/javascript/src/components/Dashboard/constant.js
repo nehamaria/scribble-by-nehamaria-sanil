@@ -1,7 +1,7 @@
 export const COLUMNS = [
   {
     Header: "TITLE",
-    className: "neeto-ui-text-secondary-indigo p-4",
+    className: "neeto-ui-text-secondary-indigo p-4 ",
     accessor: "title",
   },
   {

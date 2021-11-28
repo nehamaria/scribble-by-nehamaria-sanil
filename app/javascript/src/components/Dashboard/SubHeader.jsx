@@ -22,7 +22,7 @@ const SubHeader = ({ handleChange, selectedColumns, handleSearchTitle }) => {
         position="bottom-end"
         buttonProps={{ size: "large" }}
       >
-        <div className="space-y-2">
+        <div className="space-y-2 py-2">
           {COLUMNS.map((column, index) => (
             <Checkbox
               checked={selectedColumns.includes(column.Header)}
@@ -32,6 +32,7 @@ const SubHeader = ({ handleChange, selectedColumns, handleSearchTitle }) => {
               }
               onChange={() => handleChange(column.Header)}
               key={index}
+              className="px-2"
             />
           ))}
         </div>

@@ -81,7 +81,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="flex">
+    <div className="flex h-screen overflow-hidden">
       <SideBar
         categoryList={categoryList}
         articleList={articleList}

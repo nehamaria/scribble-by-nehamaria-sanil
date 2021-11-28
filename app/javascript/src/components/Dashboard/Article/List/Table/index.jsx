@@ -1,13 +1,13 @@
 import React from "react";
 
-import { Delete, Edit } from "@bigbinary/neeto-icons";
-import { Button } from "@bigbinary/neetoui/v2";
+import { Delete, Edit } from "neetoicons";
+import { Button } from "neetoui";
 import { useTable } from "react-table";
 
 import Body from "./Body";
 import Header from "./Header";
 
-import { COLUMNS } from "../../constant";
+import { COLUMNS } from "../../../constant";
 
 const Table = ({ articleList, handleDelete, selectedColumns }) => {
   const columns = React.useMemo(

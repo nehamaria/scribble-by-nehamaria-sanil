@@ -14,7 +14,11 @@ const Body = ({ prepareRow, rows, getTableBodyProps }) => {
           >
             {row.cells.map((cell, index) => {
               return (
-                <td key={index} {...cell.getCellProps()} className="p-4 ">
+                <td
+                  key={index}
+                  {...cell.getCellProps()}
+                  className={cell.column.className}
+                >
                   {cell.render("Cell")}
                 </td>
               );

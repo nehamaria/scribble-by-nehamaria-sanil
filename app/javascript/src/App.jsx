@@ -5,11 +5,10 @@ import { ToastContainer } from "react-toastify";
 
 import { registerIntercepts, setAuthHeaders } from "apis/axios";
 import { initializeLogger } from "common/logger";
-
-import NavBar from "./components/Common/NavBar";
-import Dashboard from "./components/Dashboard";
-import AddArticle from "./components/Dashboard/Article/AddArticle";
-import Edit from "./components/Dashboard/Article/EditArticle";
+import NavBar from "components/Common/NavBar";
+import Dashboard from "components/Dashboard";
+import AddArticle from "components/Dashboard/Article/Add";
+import Edit from "components/Dashboard/Article/Edit";
 
 const App = () => {
   const [loading, setLoading] = useState(true);

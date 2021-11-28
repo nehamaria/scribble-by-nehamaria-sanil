@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
-import { setAuthHeaders } from "apis/axios";
+import { registerIntercepts, setAuthHeaders } from "apis/axios";
 import { initializeLogger } from "common/logger";
+import NavBar from "components/Common/NavBar";
+import Dashboard from "components/Dashboard";
+import AddArticle from "components/Dashboard/Article/Add";
+import Edit from "components/Dashboard/Article/Edit";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    registerIntercepts();
     initializeLogger();
     setAuthHeaders(setLoading);
   }, []);
@@ -17,10 +23,13 @@ const App = () => {
 
   return (
     <Router>
-      <Routes>
-        <Route exact path="/" element={<div>Home</div>} />
-        <Route exact path="/about" element={<div>About</div>} />
-      </Routes>
+      <ToastContainer />
+      <NavBar />
+      <Switch>
+        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/article/create" component={AddArticle} />
+        <Route exact path="/:id/update" component={Edit} />
+      </Switch>
     </Router>
   );
 };

@@ -1,3 +1,24 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "react-toastify/dist/ReactToastify.min.css";
+
+$indigo-primary: #6366f1;
+$indigo-dark: #5653d8;
+
+.neeto-ui-btn--style {
+  &-primary {
+    background-color: $indigo-primary !important;
+
+    &:hover:not(:disabled),
+    &:active {
+      background-color: $indigo-dark !important;
+    }
+  }
+}
+
+.neeto-ui-checkbox__wrapper
+  .neeto-ui-checkbox__container
+  .neeto-ui-checkbox[type="checkbox"] {
+  color: $indigo-primary !important;
+}

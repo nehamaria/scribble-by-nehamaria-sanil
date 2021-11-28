@@ -67,7 +67,10 @@ const SideBar = ({
         </MenuBar.SubTitle>
 
         {showAddCategory && (
-          <AddCategory fetchCategoryList={fetchCategoryList} />
+          <AddCategory
+            fetchCategoryList={fetchCategoryList}
+            setShowAddCategory={setShowAddCategory}
+          />
         )}
         <MenuBar.Search
           collapse={isSearchCollapsed}

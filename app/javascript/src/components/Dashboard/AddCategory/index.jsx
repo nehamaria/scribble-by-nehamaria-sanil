@@ -5,7 +5,7 @@ import { Input } from "neetoui";
 
 import categoryApi from "apis/category";
 
-const AddCategory = ({ fetchCategoryList }) => {
+const AddCategory = ({ fetchCategoryList, setShowAddCategory }) => {
   const [categoryName, setCategoryName] = useState("");
   const handleAddCategory = e => {
     setCategoryName(e.target.value);
@@ -20,15 +20,19 @@ const AddCategory = ({ fetchCategoryList }) => {
       fetchCategoryList();
     } catch (error) {
       logger.error(error);
+    } finally {
+      setShowAddCategory(false);
     }
   };
 
   return (
     <div>
       <Input
-        placeholder="Search article title"
+        placeholder="Add Category"
+        value={categoryName}
         suffix={<Check onClick={handleSubmit} />}
         onChange={handleAddCategory}
+        onKeyDown={e => e.keyCode === 13 && handleSubmit()}
       />
     </div>
   );

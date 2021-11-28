@@ -18,7 +18,7 @@ const Article = ({
     article =>
       (selectedStatus === "All" || article.status === selectedStatus) &&
       (selectedCategory === "" || article.category.name === selectedCategory) &&
-      article.title.toLowerCase().includes(searchTitle)
+      article.title.toLowerCase().includes(searchTitle.toLowerCase())
   );
   return (
     <>

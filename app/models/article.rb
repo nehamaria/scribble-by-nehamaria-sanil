@@ -2,7 +2,7 @@
 
 class Article < ApplicationRecord
   MAX_TITLE_LENGTH = 50
-  belongs_to :category, optional: true
+  belongs_to :category
   validates :title, presence: true, length: { maximum: MAX_TITLE_LENGTH }
   validates :body, presence: true
   enum status: { Draft: 0, Published: 1 }

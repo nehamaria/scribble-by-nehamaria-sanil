@@ -17,7 +17,8 @@ const Article = ({
   const filteredArticles = articleList.filter(
     article =>
       (selectedStatus === "All" || article.status === selectedStatus) &&
-      (selectedCategory === "" || article.category.name === selectedCategory) &&
+      (selectedCategory === "" ||
+        article.category?.name === selectedCategory) &&
       article.title.toLowerCase().includes(searchTitle.toLowerCase())
   );
   return (

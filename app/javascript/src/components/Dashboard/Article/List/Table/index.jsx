@@ -50,17 +50,14 @@ const Table = ({ articleList, handleDelete, selectedColumns }) => {
     });
 
   return (
-    <>
-      <table {...getTableProps()} className="w-full ">
-        <Header headerGroups={headerGroups} />
-
-        <Body
-          prepareRow={prepareRow}
-          rows={rows}
-          getTableBodyProps={getTableBodyProps}
-        />
-      </table>
-    </>
+    <table {...getTableProps()} className="w-full mb-32 ">
+      <Header headerGroups={headerGroups} />
+      <Body
+        prepareRow={prepareRow}
+        rows={rows}
+        getTableBodyProps={getTableBodyProps}
+      />
+    </table>
   );
 };
 

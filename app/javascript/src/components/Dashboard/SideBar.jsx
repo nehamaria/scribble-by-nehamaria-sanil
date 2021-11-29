@@ -68,17 +68,17 @@ const SideBar = ({
           </Typography>
         </MenuBar.SubTitle>
 
+        <MenuBar.Search
+          collapse={isSearchCollapsed}
+          onCollapse={() => setIsSearchCollapsed(true)}
+          onChange={handleSearchCategory}
+        />
         {showAddCategory && (
           <AddCategory
             fetchCategoryList={fetchCategoryList}
             setShowAddCategory={setShowAddCategory}
           />
         )}
-        <MenuBar.Search
-          collapse={isSearchCollapsed}
-          onCollapse={() => setIsSearchCollapsed(true)}
-          onChange={handleSearchCategory}
-        />
         {categoryList.length > 0 ? (
           <>
             {categoryList

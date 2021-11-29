@@ -8,7 +8,6 @@ class ArticleTest < ActiveSupport::TestCase
   end
 
   def test_article_should_be_valid
-    # byebug
     assert @article.valid?
   end
 

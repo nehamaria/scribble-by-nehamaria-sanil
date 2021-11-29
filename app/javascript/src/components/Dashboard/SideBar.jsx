@@ -4,6 +4,8 @@ import { Plus, Search } from "neetoicons";
 import { Typography } from "neetoui";
 import { MenuBar } from "neetoui/layouts";
 
+import EmptyState from "components/Common/EmptyState";
+
 import AddCategory from "./AddCategory";
 
 const SideBar = ({
@@ -77,19 +79,27 @@ const SideBar = ({
           onCollapse={() => setIsSearchCollapsed(true)}
           onChange={handleSearchCategory}
         />
-        {categoryList
-          .filter(category =>
-            category.name?.toLowerCase().includes(searchCategory.toLowerCase())
-          )
-          .map((category, index) => (
-            <MenuBar.Block
-              label={category.name}
-              count={category.count}
-              key={index}
-              onClick={() => setSelectedCategory(category.name)}
-              active={selectedCategory === category.name}
-            />
-          ))}
+        {categoryList.length > 0 ? (
+          <>
+            {categoryList
+              .filter(category =>
+                category.name
+                  ?.toLowerCase()
+                  .includes(searchCategory.toLowerCase())
+              )
+              .map((category, index) => (
+                <MenuBar.Block
+                  label={category.name}
+                  count={category.count}
+                  key={index}
+                  onClick={() => setSelectedCategory(category.name)}
+                  active={selectedCategory === category.name}
+                />
+              ))}
+          </>
+        ) : (
+          <EmptyState message="No categories found" />
+        )}
       </MenuBar>
     </>
   );

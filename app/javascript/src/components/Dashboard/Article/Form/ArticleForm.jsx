@@ -13,12 +13,19 @@ const ArticleForm = ({
   categoryList,
   status,
   setStatus,
+  submitted,
+  setSubmitted,
   initialForm = INITIAL_FORM_VALUES,
 }) => {
   return (
     <Formik
       initialValues={initialForm}
-      onSubmit={handleSubmit}
+      onSubmit={values => {
+        setSubmitted(true);
+        handleSubmit(values);
+      }}
+      validateOnBlur={submitted}
+      validateOnChange={submitted}
       validationSchema={VALIDATION_SCHEMA}
     >
       {({ isSubmitting }) => (

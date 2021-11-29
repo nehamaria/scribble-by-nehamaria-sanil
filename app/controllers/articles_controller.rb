@@ -3,11 +3,11 @@
 class ArticlesController < ApplicationController
   before_action :load_article, only: %i[show destroy update]
   def index
-    @articles = Article.all
+    @articles = Article.all.order("updated_at DESC")
   end
 
   def create
-    article = Article.new(article_params)
+    article = Article.new(article_params.merge(user_id: 1))
     if article.save
       render status: :ok,
         json: { notice: t("successfully_created", entity: "Article") }

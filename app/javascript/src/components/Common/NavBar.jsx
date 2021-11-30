@@ -4,6 +4,7 @@ import { ExternalLink } from "neetoicons";
 import { Button, Typography } from "neetoui";
 import { Header } from "neetoui/layouts";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -21,16 +22,22 @@ const NavBar = () => {
           <Link to="/">
             <Typography style="h4">Scribble</Typography>
           </Link>
-          <Link to="/">
-            <Typography style="h4" className="neeto-ui-text-gray-500">
-              Articles
-            </Typography>
-          </Link>
-          <Link to="/">
-            <Typography style="h4" className="neeto-ui-text-gray-500">
-              Settings
-            </Typography>
-          </Link>
+          <NavLink
+            exact
+            to="/"
+            className="neeto-ui-text-gray-500"
+            activeStyle={{ color: "#6366F1" }}
+          >
+            <Typography style="h4">Articles</Typography>
+          </NavLink>
+
+          <NavLink
+            to="/settings"
+            className="neeto-ui-text-gray-500"
+            activeStyle={{ color: "#6366F1" }}
+          >
+            <Typography style="h4">Settings</Typography>
+          </NavLink>
         </div>
       }
       className="border border-bottom-0"

@@ -10,6 +10,8 @@ import Dashboard from "components/Dashboard";
 import AddArticle from "components/Dashboard/Article/Add";
 import Edit from "components/Dashboard/Article/Edit";
 
+import Settings from "./components/Settings";
+
 const App = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -29,6 +31,7 @@ const App = () => {
         <Route exact path="/" component={Dashboard} />
         <Route exact path="/article/create" component={AddArticle} />
         <Route exact path="/:id/update" component={Edit} />
+        <Route path="/settings" component={Settings} />
       </Switch>
     </Router>
   );

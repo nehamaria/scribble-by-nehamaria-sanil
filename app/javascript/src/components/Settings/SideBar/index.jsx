@@ -6,7 +6,7 @@ import Item from "./Item";
 
 const SideBar = () => {
   return (
-    <div className=" p-6 max-w-sm space-y-6  border-r h-screen-x">
+    <div className=" p-6 max-w-sm space-y-6 w-full border-r h-screen-x">
       <Item
         icon={() => <Settings />}
         name="General"

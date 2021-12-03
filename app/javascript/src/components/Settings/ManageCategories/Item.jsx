@@ -31,6 +31,7 @@ const Item = ({ provided, category, fetchCategoryList }) => {
       setUpdateCategory({ id: "", value: "" });
     }
   };
+
   return (
     <>
       <div

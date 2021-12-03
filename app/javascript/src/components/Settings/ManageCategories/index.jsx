@@ -13,11 +13,16 @@ const ManageCategories = () => {
   const [categoryList, setCategoryList] = useState([]);
   const [addCategory, setAddCategory] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [categoryPositions, setCategoryPositions] = useState([]);
 
   const fetchCategoryList = async () => {
     try {
       const response = await categoryApi.categoryList();
       setCategoryList(response.data.categories);
+      const categoryIdOrder = response.data.categories.map(
+        category => category.id
+      );
+      setCategoryPositions(categoryIdOrder);
     } catch (error) {
       logger.error(error);
     } finally {
@@ -64,6 +69,8 @@ const ManageCategories = () => {
           categoryList={categoryList}
           setCategoryList={setCategoryList}
           fetchCategoryList={fetchCategoryList}
+          categoryPositions={categoryPositions}
+          setCategoryPositions={setCategoryPositions}
         />
       </div>
     </div>

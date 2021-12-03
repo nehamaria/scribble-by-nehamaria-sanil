@@ -5,15 +5,12 @@ class GeneralsController < ApplicationController
 
   def update
     if @general.update(general_params)
+      puts general_params
       render status: :ok, json: { notice: t("successfully_updated", entity: "General") }
     else
       render status: :unprocessable_entity,
         json: { error: @general.errors.full_messages.to_sentence }
     end
-  end
-
-  def show
-    load_general
   end
 
   private
@@ -26,6 +23,6 @@ class GeneralsController < ApplicationController
     end
 
     def general_params
-      params.require(:general).permit(:name)
+      params.require(:general).permit(:name, :password)
     end
 end

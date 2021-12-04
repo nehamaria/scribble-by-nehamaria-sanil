@@ -9,6 +9,9 @@ module.exports = {
       height: {
         "screen-x": "90vh",
       },
+      backgroundColor: {
+        "indigo-50": "#EEF2FF",
+      },
     },
   },
   variants: {},

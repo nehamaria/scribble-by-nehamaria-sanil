@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       post "sort", on: :collection
     end
     resource :general, only: %i[update show]
+    resources :redirections, only: %i[create index show destroy update]
 
   end
   root "home#index"

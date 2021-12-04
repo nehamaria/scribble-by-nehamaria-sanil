@@ -7,3 +7,8 @@ export const VALIDATE_GENERAL_SCHEMA = yup.object({
     then: yup.string().required("Password cannot be blank"),
   }),
 });
+
+export const REDIRECTION_VALIDATION = yup.object({
+  from_path: yup.string().required("Path is required"),
+  to_path: yup.string().required("Path is required"),
+});

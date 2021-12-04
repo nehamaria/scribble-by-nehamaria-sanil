@@ -45,12 +45,14 @@ const Dashboard = () => {
     }
   };
   const handleDelete = async id => {
-    try {
-      await articleApi.destroy(id);
-      fetchArticleList();
-      fetchCategoryList();
-    } catch (error) {
-      logger.error(error);
+    if (confirm("Do you want to delete the article?")) {
+      try {
+        await articleApi.destroy(id);
+        fetchArticleList();
+        fetchCategoryList();
+      } catch (error) {
+        logger.error(error);
+      }
     }
   };
   const handleChange = columnHeader => {

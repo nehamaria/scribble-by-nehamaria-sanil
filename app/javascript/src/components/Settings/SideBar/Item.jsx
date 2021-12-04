@@ -7,7 +7,7 @@ const Item = ({ icon = () => {}, name, body, route }) => {
   return (
     <NavLink
       exact
-      className={isActive => `flex w-full   ${isActive && " bg-gray-200"}`}
+      className={isActive => `flex w-full   ${isActive && " bg-indigo-50"}`}
       to={route}
     >
       <div className="flex space-x-2 px-2 py-3">

@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
   private
 
     def load_article
-      @article = Article.find_by(id: params[:id])
+      @article = Article.find_by_slug(params[:slug])
       unless @article
         render status: :not_found, json: { error: t("article.not_found") }
       end

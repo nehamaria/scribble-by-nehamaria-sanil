@@ -14,9 +14,8 @@ const Edit = () => {
   const [status, setStatus] = useState("");
   const [initialForm, setInitialForm] = useState({});
   const history = useHistory();
-  const { id } = useParams();
+  const { slug } = useParams();
   const [loading, setLoading] = useState(true);
-  const [submitted, setSubmitted] = useState(false);
 
   const setFormValues = articles => {
     const selectedForm = (({ title, body, category }) => ({
@@ -35,8 +34,7 @@ const Edit = () => {
 
   const fetchDetails = async () => {
     try {
-      setSubmitted(true);
-      const article = await articleApi.show(id);
+      const article = await articleApi.show(slug);
       setArticleDetails(article.data.articles);
       const response = await categoryApi.categoryList();
       setCategoryList(response.data.categories);
@@ -53,7 +51,7 @@ const Edit = () => {
     }
   };
 
-  const handleSubmit = async values => {
+  const handleSubmit = async (values, { setSubmitting }) => {
     const { title, category, body } = values;
     const payload = {
       title: title,
@@ -62,9 +60,10 @@ const Edit = () => {
       status: status.includes("Draft") ? "Draft" : "Published",
     };
     try {
-      await articleApi.update(id, payload);
+      await articleApi.update(slug, payload);
       history.push("/");
     } catch (error) {
+      setSubmitting(false);
       logger.error(error);
     }
   };
@@ -82,8 +81,6 @@ const Edit = () => {
       categoryList={categoryList}
       handleSubmit={handleSubmit}
       initialForm={initialForm}
-      submitted={submitted}
-      setSubmitted={setSubmitted}
     />
   );
 };

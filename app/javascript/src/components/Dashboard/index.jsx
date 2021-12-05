@@ -44,10 +44,10 @@ const Dashboard = () => {
       logger.error(error);
     }
   };
-  const handleDelete = async id => {
+  const handleDelete = async slug => {
     if (confirm("Do you want to delete the article?")) {
       try {
-        await articleApi.destroy(id);
+        await articleApi.destroy(slug);
         fetchArticleList();
         fetchCategoryList();
       } catch (error) {

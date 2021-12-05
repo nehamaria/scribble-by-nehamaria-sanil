@@ -13,9 +13,8 @@ const AddArticle = () => {
   const [status, setStatus] = useState("Save Draft");
   const history = useHistory();
   const [loading, setLoading] = useState(true);
-  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async values => {
+  const handleSubmit = async (values, { setSubmitting }) => {
     const { title, category, body } = values;
     const payload = {
       title: title,
@@ -24,10 +23,10 @@ const AddArticle = () => {
       status: status.includes("Draft") ? "Draft" : "Published",
     };
     try {
-      setSubmitted(true);
       await articleApi.create(payload);
       history.push("/");
     } catch (error) {
+      setSubmitting(false);
       logger.error(error);
     }
   };
@@ -60,8 +59,6 @@ const AddArticle = () => {
         categoryList={categoryList}
         status={status}
         setStatus={setStatus}
-        submitted={submitted}
-        setSubmitted={setSubmitted}
       />
     </div>
   );

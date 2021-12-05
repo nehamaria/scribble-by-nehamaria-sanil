@@ -22,7 +22,7 @@ const Table = ({ articleList, handleDelete, selectedColumns }) => {
             icon={() => <Delete />}
             iconPosition="left"
             onClick={() => {
-              handleDelete(cell.row.original.id);
+              handleDelete(cell.row.original.slug);
             }}
           />
         ),
@@ -33,7 +33,7 @@ const Table = ({ articleList, handleDelete, selectedColumns }) => {
         Cell: ({ cell }) => (
           <Button
             style="link"
-            to={`/${cell.row.original.id}/update`}
+            to={`/${cell.row.original.slug}/update`}
             icon={() => <Edit />}
             iconPosition="left"
           />
@@ -42,6 +42,7 @@ const Table = ({ articleList, handleDelete, selectedColumns }) => {
     ],
     [selectedColumns]
   );
+
   const data = React.useMemo(() => articleList, [articleList]);
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({

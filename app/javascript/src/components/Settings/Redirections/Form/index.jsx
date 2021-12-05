@@ -27,13 +27,13 @@ const RedirectionForm = ({ initialValues, handleSubmit }) => {
           <td className="text-left p-5 mx-4">
             <Input name="to_path" />
           </td>
-          <td>
+          <td className="p-4">
             <Button
-              type="submit"
               style="text"
-              icon={() => <Check onClick={handleSubmit} />}
+              icon={() => <Check />}
               loading={isSubmitting}
               disabled={isSubmitting}
+              onClick={handleSubmit}
             />
           </td>
         </>

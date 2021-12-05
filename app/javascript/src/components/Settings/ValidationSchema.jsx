@@ -8,7 +8,17 @@ export const VALIDATE_GENERAL_SCHEMA = yup.object({
   }),
 });
 
+/* eslint-disable no-useless-escape */
 export const REDIRECTION_VALIDATION = yup.object({
-  from_path: yup.string().required("Path is required"),
-  to_path: yup.string().required("Path is required"),
+  from_path: yup
+    .string()
+    .required("Path is required")
+    .matches(/^(\/([-a-zA-Z0-9@:%._\\+~#?&//=]*))*$/, "Invalid urls"),
+  to_path: yup
+    .string()
+    .required("Path is required")
+    .matches(
+      /^([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))*$/,
+      "Invalid urls"
+    ),
 });

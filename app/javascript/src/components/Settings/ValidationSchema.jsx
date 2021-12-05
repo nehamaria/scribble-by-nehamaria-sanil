@@ -8,6 +8,7 @@ export const VALIDATE_GENERAL_SCHEMA = yup.object({
   }),
 });
 
+/* eslint-disable no-useless-escape */
 export const REDIRECTION_VALIDATION = yup.object({
   from_path: yup
     .string()

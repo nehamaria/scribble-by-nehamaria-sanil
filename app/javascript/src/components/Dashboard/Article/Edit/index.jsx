@@ -14,7 +14,7 @@ const Edit = () => {
   const [status, setStatus] = useState("");
   const [initialForm, setInitialForm] = useState({});
   const history = useHistory();
-  const { id } = useParams();
+  const { slug } = useParams();
   const [loading, setLoading] = useState(true);
 
   const setFormValues = articles => {
@@ -34,7 +34,7 @@ const Edit = () => {
 
   const fetchDetails = async () => {
     try {
-      const article = await articleApi.show(id);
+      const article = await articleApi.show(slug);
       setArticleDetails(article.data.articles);
       const response = await categoryApi.categoryList();
       setCategoryList(response.data.categories);
@@ -60,7 +60,7 @@ const Edit = () => {
       status: status.includes("Draft") ? "Draft" : "Published",
     };
     try {
-      await articleApi.update(id, payload);
+      await articleApi.update(slug, payload);
       history.push("/");
     } catch (error) {
       setSubmitting(false);

@@ -5,7 +5,8 @@ json.articles @articles do |article|
     :id,
     :title,
     :body,
-    :status
+    :status,
+    :slug
 
   json.created_at article.created_at.strftime("%B #{article.created_at.day.ordinalize}, %Y")
   json.author_name article.user.name

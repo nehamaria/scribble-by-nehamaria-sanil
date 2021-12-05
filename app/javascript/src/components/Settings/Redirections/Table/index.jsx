@@ -28,17 +28,28 @@ const RedirectionsTable = ({ redirectionList, fetchRedirectionList }) => {
     <table className="w-full ">
       <Header />
       <tbody>
-        {redirectionList.map((row, index) => (
-          <Row
-            row={row}
-            key={index}
-            handleDelete={handleDelete}
-            fetchRedirectionList={fetchRedirectionList}
-          />
-        ))}
+        {redirectionList.length ? (
+          redirectionList.map((row, index) => (
+            <Row
+              key={index}
+              row={row}
+              handleDelete={handleDelete}
+              fetchRedirectionList={fetchRedirectionList}
+            />
+          ))
+        ) : (
+          <tr>
+            <td
+              className="table-cell text-center pt-4 align-middle neeto-ui-text-gray-500"
+              colSpan="3"
+            >
+              <Typography>No redirections found</Typography>
+            </td>
+          </tr>
+        )}
 
         {addRedirections && (
-          <tr className="bg-white border-b-8 border-indigo-100 mr-10">
+          <tr className="bg-white border-b-8 border-indigo-100">
             <AddRedirections
               fetchRedirectionList={fetchRedirectionList}
               setAddRedirections={setAddRedirections}
@@ -46,7 +57,7 @@ const RedirectionsTable = ({ redirectionList, fetchRedirectionList }) => {
           </tr>
         )}
         <tr>
-          <td>
+          <td className="pt-6 ">
             <Button
               style="link"
               icon={() => <Plus size={18} />}

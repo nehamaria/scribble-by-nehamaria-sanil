@@ -6,6 +6,7 @@ import categoryApi from "apis/category";
 
 import Item from "./Item";
 
+import EmptyState from "../../Common/EmptyState";
 import { reorderCategories } from "../../helpers/functions";
 
 const DragDrop = ({
@@ -46,21 +47,25 @@ const DragDrop = ({
         <Droppable droppableId="droppable">
           {provided => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
-              {categoryList.map((category, index) => (
-                <Draggable
-                  key={category.id}
-                  draggableId={String(category.id)}
-                  index={index}
-                >
-                  {provided => (
-                    <Item
-                      provided={provided}
-                      category={category}
-                      fetchCategoryList={fetchCategoryList}
-                    />
-                  )}
-                </Draggable>
-              ))}
+              {categoryList.length ? (
+                categoryList.map((category, index) => (
+                  <Draggable
+                    key={category.id}
+                    draggableId={String(category.id)}
+                    index={index}
+                  >
+                    {provided => (
+                      <Item
+                        provided={provided}
+                        category={category}
+                        fetchCategoryList={fetchCategoryList}
+                      />
+                    )}
+                  </Draggable>
+                ))
+              ) : (
+                <EmptyState message="No categories found" />
+              )}
               {provided.placeholder}
             </div>
           )}

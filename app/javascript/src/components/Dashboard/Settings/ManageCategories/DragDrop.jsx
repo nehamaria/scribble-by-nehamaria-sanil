@@ -6,8 +6,8 @@ import categoryApi from "apis/category";
 
 import Item from "./Item";
 
-import EmptyState from "../../Common/EmptyState";
-import { reorderCategories } from "../../helpers/functions";
+import EmptyState from "../../../Common/EmptyState";
+import { reorderCategories } from "../../../helpers/functions";
 
 const DragDrop = ({
   categoryList,

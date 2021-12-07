@@ -1,7 +1,7 @@
 import React from "react";
 
 import redirectionApi from "apis/redirection";
-import { INITIAL_FORM_VALUES } from "components/Settings/constants";
+import { INITIAL_FORM_VALUES } from "components/Dashboard/Settings/constants";
 
 import RedirectionForm from "../Form";
 

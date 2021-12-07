@@ -6,7 +6,7 @@ import { MenuBar } from "neetoui/layouts";
 
 import EmptyState from "components/Common/EmptyState";
 
-import AddCategory from "./AddCategory";
+import AddCategory from "../AddCategory";
 
 const SideBar = ({
   categoryList,

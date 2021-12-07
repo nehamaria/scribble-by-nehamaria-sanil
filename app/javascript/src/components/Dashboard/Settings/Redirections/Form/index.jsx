@@ -5,7 +5,7 @@ import { Check } from "neetoicons";
 import { Typography, Button } from "neetoui";
 import { Input } from "neetoui/formik";
 
-import { REDIRECTION_VALIDATION } from "components/Settings/ValidationSchema";
+import { REDIRECTION_VALIDATION } from "components/Dashboard/Settings/ValidationSchema";
 
 const RedirectionForm = ({ initialValues, handleSubmit }) => {
   return (

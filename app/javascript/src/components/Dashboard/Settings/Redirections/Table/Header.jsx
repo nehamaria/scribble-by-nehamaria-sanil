@@ -2,7 +2,7 @@ import React from "react";
 
 import { Typography } from "neetoui";
 
-import { REDIRECTION_COLUMNS } from "components/Settings/constants";
+import { REDIRECTION_COLUMNS } from "components/Dashboard/Settings/constants";
 
 const Header = () => {
   return (

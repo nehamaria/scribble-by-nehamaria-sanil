@@ -4,7 +4,7 @@ import { Search, Plus } from "neetoicons";
 import { Input, Dropdown, Button, Checkbox } from "neetoui";
 import { Link } from "react-router-dom";
 
-import { COLUMNS } from "./constant";
+import { COLUMNS } from "../constant";
 
 const SubHeader = ({ handleChange, selectedColumns, handleSearchTitle }) => {
   return (

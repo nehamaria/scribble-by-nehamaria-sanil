@@ -8,7 +8,7 @@ import categoryApi from "apis/category";
 
 import ArticleForm from "../Form/ArticleForm";
 
-const Edit = () => {
+const EditArticle = () => {
   const [articleDetails, setArticleDetails] = useState({});
   const [categoryList, setCategoryList] = useState([]);
   const [status, setStatus] = useState("");
@@ -85,4 +85,4 @@ const Edit = () => {
   );
 };
 
-export default Edit;
+export default EditArticle;

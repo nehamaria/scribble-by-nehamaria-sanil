@@ -7,7 +7,7 @@ import categoryApi from "apis/category";
 
 import DragDrop from "./DragDrop";
 
-import AddCategory from "../../Dashboard/AddCategory";
+import AddCategory from "../../AddCategory";
 
 const ManageCategories = () => {
   const [categoryList, setCategoryList] = useState([]);

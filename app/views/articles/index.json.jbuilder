@@ -8,7 +8,7 @@ json.articles @articles do |article|
     :status,
     :slug
 
-  json.created_at article.created_at.strftime("%B #{article.created_at.day.ordinalize}, %Y")
+  json.created_at article.Published? ? article.created_at.strftime("%B #{article.created_at.day.ordinalize}, %Y") : "-"
   json.author_name article.user.name
   json.category article&.category
 end

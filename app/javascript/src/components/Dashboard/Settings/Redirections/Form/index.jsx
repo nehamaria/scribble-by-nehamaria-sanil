@@ -5,7 +5,7 @@ import { Check } from "neetoicons";
 import { Typography, Button } from "neetoui";
 import { Input } from "neetoui/formik";
 
-import { REDIRECTION_VALIDATION } from "components/Settings/ValidationSchema";
+import { REDIRECTION_VALIDATION } from "components/Dashboard/Settings/ValidationSchema";
 
 const RedirectionForm = ({ initialValues, handleSubmit }) => {
   return (
@@ -25,7 +25,7 @@ const RedirectionForm = ({ initialValues, handleSubmit }) => {
             />
           </td>
           <td className="text-left p-5 mx-4">
-            <Input name="to_path" />
+            <Input name="to_path" placeholder="https://scribble.com" />
           </td>
           <td className="p-4">
             <Button

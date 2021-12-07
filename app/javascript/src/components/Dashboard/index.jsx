@@ -1,114 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import { PageLoader } from "neetoui";
-import { Container } from "neetoui/layouts";
+import { Switch, Route } from "react-router-dom";
 
-import articleApi from "apis/article";
-import categoryApi from "apis/category";
-import useDebounce from "components/Common/useDebounce";
+import NavBar from "components/Common/NavBar";
+import AddArticle from "components/Dashboard/Article/Add";
+import Edit from "components/Dashboard/Article/Edit";
 
-import Article from "./Article/List";
-import { COLUMNS } from "./constant";
-import SideBar from "./SideBar";
-import SubHeader from "./SubHeader";
+import ArticleList from "./Article/List";
+import Settings from "./Settings";
 
 const Dashboard = () => {
-  const [categoryList, setCategoryList] = useState([]);
-  const [articleList, setArticleList] = useState({});
-  const [selectedStatus, setSelectedStatus] = useState("All");
-  const [searchTitle, setSearchTitle] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-
-  const [selectedColumns, setSelectedColumns] = useState(
-    COLUMNS.map(({ Header }) => Header)
-  );
-  const debouncedSearchTitle = useDebounce(searchTitle, 500);
-
-  const fetchArticleList = async () => {
-    try {
-      const articles = await articleApi.articleList();
-      setArticleList(articles.data);
-    } catch (error) {
-      logger.error(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const fetchCategoryList = async () => {
-    try {
-      const categories = await categoryApi.categoryList();
-      setCategoryList(categories.data.categories);
-    } catch (error) {
-      logger.error(error);
-    }
-  };
-  const handleDelete = async slug => {
-    if (confirm("Do you want to delete the article?")) {
-      try {
-        await articleApi.destroy(slug);
-        fetchArticleList();
-        fetchCategoryList();
-      } catch (error) {
-        logger.error(error);
-      }
-    }
-  };
-  const handleChange = columnHeader => {
-    if (selectedColumns.includes(columnHeader)) {
-      setSelectedColumns(
-        selectedColumns.filter(column => column !== columnHeader)
-      );
-    } else {
-      setSelectedColumns([...selectedColumns, columnHeader]);
-    }
-  };
-
-  const handleSearchTitle = e => {
-    setSearchTitle(e.target.value);
-  };
-
-  useEffect(() => {
-    fetchArticleList();
-    fetchCategoryList();
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div>
-        <PageLoader />
-      </div>
-    );
-  }
-
   return (
-    <div className="flex h-screen-x overflow-hidden">
-      <SideBar
-        categoryList={categoryList}
-        articleList={articleList}
-        selectedStatus={selectedStatus}
-        selectedCategory={selectedCategory}
-        setSelectedStatus={setSelectedStatus}
-        setSelectedCategory={setSelectedCategory}
-        fetchCategoryList={fetchCategoryList}
-      />
-      <Container>
-        <SubHeader
-          handleChange={handleChange}
-          selectedColumns={selectedColumns}
-          handleSearchTitle={handleSearchTitle}
-        />
-        <Article
-          articleList={articleList.articles}
-          handleDelete={handleDelete}
-          selectedColumns={selectedColumns}
-          selectedStatus={selectedStatus}
-          selectedCategory={selectedCategory}
-          searchTitle={debouncedSearchTitle}
-        />
-      </Container>
-    </div>
+    <>
+      <NavBar />
+      <Switch>
+        <Route exact path="/article/create" component={AddArticle} />
+        <Route exact path="/:slug/update" component={Edit} />
+        <Route path="/settings" component={Settings} />
+        <Route exact path="/" component={ArticleList} />
+      </Switch>
+    </>
   );
 };
 

@@ -4,10 +4,10 @@ import { Delete, Edit } from "neetoicons";
 import { Button } from "neetoui";
 import { useTable } from "react-table";
 
+import { COLUMNS } from "components/Dashboard/constant";
+
 import Body from "./Body";
 import Header from "./Header";
-
-import { COLUMNS } from "../../../constant";
 
 const Table = ({ articleList, handleDelete, selectedColumns }) => {
   const columns = React.useMemo(

@@ -8,6 +8,7 @@ import generalApi from "apis/general";
 
 import Password from "./Password";
 
+import { setToLocalStorage } from "../../../../helpers/storage";
 import { VALIDATE_GENERAL_SCHEMA } from "../ValidationSchema";
 
 const GeneralForm = ({ initialValues }) => {
@@ -18,6 +19,11 @@ const GeneralForm = ({ initialValues }) => {
         password: values.isProtected ? values.password : null,
       },
     };
+    if (payload.general.password === null) {
+      setToLocalStorage({
+        authToken: null,
+      });
+    }
     try {
       await generalApi.update(payload);
     } catch (error) {

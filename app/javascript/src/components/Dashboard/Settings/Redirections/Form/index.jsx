@@ -25,7 +25,7 @@ const RedirectionForm = ({ initialValues, handleSubmit }) => {
             />
           </td>
           <td className="text-left p-5 mx-4">
-            <Input name="to_path" />
+            <Input name="to_path" placeholder="https://scribble.com" />
           </td>
           <td className="p-4">
             <Button

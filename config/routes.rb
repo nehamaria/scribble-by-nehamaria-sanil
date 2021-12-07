@@ -8,7 +8,12 @@ Rails.application.routes.draw do
       post "sort", on: :collection
     end
     resource :general, only: %i[update show]
+
     resources :redirections, only: %i[create index show destroy update]
+    resource :session, only: :create
+    namespace :public do
+      resources :categories, only: [:index]
+    end
 
   end
   root "home#index"

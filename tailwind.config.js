@@ -12,6 +12,9 @@ module.exports = {
       backgroundColor: {
         "indigo-50": "#EEF2FF",
       },
+      color: {
+        "gray-600": "#4B5563",
+      },
     },
   },
   variants: {},

@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import { registerIntercepts, setAuthHeaders } from "apis/axios";
 import { initializeLogger } from "common/logger";
 import Dashboard from "components/Dashboard";
+import Public from "components/Public";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -23,6 +24,7 @@ const App = () => {
     <Router>
       <ToastContainer />
       <Switch>
+        <Route path="/public" component={Public} />
         <Route path="/" component={Dashboard} />
       </Switch>
     </Router>

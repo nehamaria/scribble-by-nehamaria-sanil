@@ -3,8 +3,7 @@ import React from "react";
 import { ExternalLink } from "neetoicons";
 import { Button, Typography } from "neetoui";
 import { Header } from "neetoui/layouts";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -14,6 +13,7 @@ const NavBar = () => {
           label="Preview"
           style="secondary"
           className="mr-4"
+          to="/public"
           icon={() => <ExternalLink className="ml-2" />}
         />
       }

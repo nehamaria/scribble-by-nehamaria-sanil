@@ -10,7 +10,7 @@ const Body = ({ prepareRow, rows, getTableBodyProps }) => {
           <tr
             key={i}
             {...row.getRowProps()}
-            className={`${i % 2 ? "bg-gray-200" : "bg-white"} `}
+            className={`${i % 2 ? "bg-gray-100" : "bg-white"} `}
           >
             {row.cells.map((cell, index) => {
               return (

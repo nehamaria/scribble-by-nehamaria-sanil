@@ -3,12 +3,12 @@ import React from "react";
 import { Formik, Form } from "formik";
 import { Typography, Button } from "neetoui";
 import { Input } from "neetoui/formik";
+import { setToLocalStorage } from "src/helpers/storage";
 
 import generalApi from "apis/general";
 
 import Password from "./Password";
 
-import { setToLocalStorage } from "../../../../helpers/storage";
 import { VALIDATE_GENERAL_SCHEMA } from "../ValidationSchema";
 
 const GeneralForm = ({ initialValues }) => {

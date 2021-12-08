@@ -70,7 +70,10 @@ const SideBar = ({
 
         <MenuBar.Search
           collapse={isSearchCollapsed}
-          onCollapse={() => setIsSearchCollapsed(true)}
+          onCollapse={() => {
+            setIsSearchCollapsed(true);
+            setSearchCategory("");
+          }}
           onChange={handleSearchCategory}
         />
         {showAddCategory && (

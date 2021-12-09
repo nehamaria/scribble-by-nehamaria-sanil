@@ -3,10 +3,9 @@ import React from "react";
 import { Toastr } from "neetoui";
 
 import previewApi from "apis/preview";
+import { setToLocalStorage } from "helpers/storage";
 
 import AuthenticationForm from "./Form";
-
-import { setToLocalStorage } from "../../../helpers/storage";
 
 const Authentication = ({ siteDetails }) => {
   const handleSubmit = async values => {

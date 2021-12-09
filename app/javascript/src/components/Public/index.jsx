@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import { PageLoader } from "neetoui";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { getFromLocalStorage } from "src/helpers/storage";
 
 import { setAuthHeaders } from "apis/axios";
 import generalApi from "apis/general";
+import { getFromLocalStorage } from "helpers/storage";
 
 import Authentication from "./Authentication";
 import Eui from "./Eui";

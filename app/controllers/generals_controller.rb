@@ -5,7 +5,6 @@ class GeneralsController < ApplicationController
 
   def update
     if @general.update(general_params)
-      puts general_params
       render status: :ok, json: { notice: t("successfully_updated", entity: "General") }
     else
       render status: :unprocessable_entity,

@@ -22,12 +22,14 @@ const Row = ({ row, handleDelete, fetchRedirectionList }) => {
         />
       ) : (
         <>
-          <td className="text-left p-5 mx-4">
-            <span className="neeto-ui-text-gray-400">https://scribble.com</span>
+          <td className="text-left p-5 mx-4 break-all">
+            <span className="neeto-ui-text-gray-400">
+              {window.location.origin}
+            </span>
             {row.from_path}
           </td>
-          <td className="text-left p-5 mx-4">
-            <span>https://scribble.com</span>
+          <td className="text-left p-5 mx-4 break-all">
+            <span>{window.location.origin}</span>
             {row.to_path}
           </td>
           <td>

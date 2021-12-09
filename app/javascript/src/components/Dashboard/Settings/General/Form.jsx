@@ -3,9 +3,9 @@ import React from "react";
 import { Formik, Form } from "formik";
 import { Typography, Button } from "neetoui";
 import { Input } from "neetoui/formik";
-import { setToLocalStorage } from "src/helpers/storage";
 
 import generalApi from "apis/general";
+import { setToLocalStorage } from "helpers/storage";
 
 import Password from "./Password";
 

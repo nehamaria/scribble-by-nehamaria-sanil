@@ -20,7 +20,7 @@ const RedirectionForm = ({ initialValues, handleSubmit }) => {
             <Input
               name="from_path"
               prefix={
-                <Typography style="body2">https://scribble.com</Typography>
+                <Typography style="body2">{window.location.origin}</Typography>
               }
             />
           </td>
@@ -28,7 +28,7 @@ const RedirectionForm = ({ initialValues, handleSubmit }) => {
             <Input
               name="to_path"
               prefix={
-                <Typography style="body2">https://scribble.com</Typography>
+                <Typography style="body2">{window.location.origin}</Typography>
               }
             />
           </td>

@@ -31,4 +31,9 @@ class RedirectionTest < ActiveSupport::TestCase
 
     assert_includes test_redirection.errors.full_messages, "From path has already been taken"
   end
+
+  def test_should_not_be_valid_and_saved_if_from_path_and_to_path_are_same
+    redirection = build :redirection, from_path: "/test1", to_path: "/test1"
+    assert redirection.invalid?
+  end
 end

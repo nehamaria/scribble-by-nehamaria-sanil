@@ -26,7 +26,10 @@ const Row = ({ row, handleDelete, fetchRedirectionList }) => {
             <span className="neeto-ui-text-gray-400">https://scribble.com</span>
             {row.from_path}
           </td>
-          <td className="text-left p-5 mx-4">{row.to_path}</td>
+          <td className="text-left p-5 mx-4">
+            <span>https://scribble.com</span>
+            {row.to_path}
+          </td>
           <td>
             <Button
               style="text"

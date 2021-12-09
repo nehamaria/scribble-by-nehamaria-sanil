@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        "screen-x": "90vh",
+        "screen-x": "calc(100vh - 4rem)",
       },
       backgroundColor: {
         "indigo-50": "#EEF2FF",

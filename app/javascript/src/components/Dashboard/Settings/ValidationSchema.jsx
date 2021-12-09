@@ -17,8 +17,5 @@ export const REDIRECTION_VALIDATION = yup.object({
   to_path: yup
     .string()
     .required("Path is required")
-    .matches(
-      /^([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*))*$/,
-      "Invalid urls"
-    ),
+    .matches(/^(\/([-a-zA-Z0-9@:%._\\+~#?&//=]*))*$/, "Invalid urls"),
 });

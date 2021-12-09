@@ -20,7 +20,7 @@ const AuthenticationForm = ({ handleSubmit, siteName }) => {
           {siteName} is password protected!
         </Typography>
         <Typography style="body1" className="ml-6">
-          Enter the password to gain access to spinkart.
+          Enter the password to gain access to {siteName}.
         </Typography>
         <Formik
           initialValues={{ password: "" }}

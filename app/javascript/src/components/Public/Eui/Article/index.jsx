@@ -8,7 +8,7 @@ import Preview from "./Preview";
 import SideBar from "./SideBar";
 
 const Article = ({ articleList, categoryList }) => {
-  const [article, setArticle] = useState({});
+  const [article, setArticle] = useState(null);
 
   const { slug } = useParams();
 
@@ -25,7 +25,7 @@ const Article = ({ articleList, categoryList }) => {
   }, [slug, articleList]);
 
   return (
-    <div className="w-full flex space-x-4">
+    <div className="w-full flex h-screen-x overflow-hidden">
       {articleList.length > 0 ? (
         <>
           <SideBar categoryList={categoryList} article={article} />

@@ -32,7 +32,7 @@ const Table = ({ articleList, handleDelete, selectedColumns }) => {
         accessor: "edit",
         Cell: ({ cell }) => (
           <Button
-            style="link"
+            style="text"
             to={`/${cell.row.original.slug}/update`}
             icon={() => <Edit />}
             iconPosition="left"

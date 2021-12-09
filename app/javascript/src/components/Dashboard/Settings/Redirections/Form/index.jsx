@@ -25,7 +25,12 @@ const RedirectionForm = ({ initialValues, handleSubmit }) => {
             />
           </td>
           <td className="text-left p-5 mx-4">
-            <Input name="to_path" placeholder="https://scribble.com" />
+            <Input
+              name="to_path"
+              prefix={
+                <Typography style="body2">https://scribble.com</Typography>
+              }
+            />
           </td>
           <td className="p-4">
             <Button
@@ -33,7 +38,10 @@ const RedirectionForm = ({ initialValues, handleSubmit }) => {
               icon={() => <Check />}
               loading={isSubmitting}
               disabled={isSubmitting}
-              onClick={handleSubmit}
+              onMouseDown={e => {
+                e.preventDefault();
+                handleSubmit();
+              }}
             />
           </td>
         </>

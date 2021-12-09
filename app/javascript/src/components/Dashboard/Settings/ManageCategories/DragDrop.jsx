@@ -1,13 +1,12 @@
 import React from "react";
 
+import { reorderCategories } from "helpers";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import categoryApi from "apis/category";
+import EmptyState from "components/Common/EmptyState";
 
 import Item from "./Item";
-
-import EmptyState from "../../../Common/EmptyState";
-import { reorderCategories } from "../../../helpers/functions";
 
 const DragDrop = ({
   categoryList,
